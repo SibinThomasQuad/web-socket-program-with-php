@@ -1,0 +1,30 @@
+IN CLIENT PHP FIle
+7
+
+I have tried this project alongside Ratchet, and it works perfectly as a PHP client:
+
+https://github.com/Textalk/websocket-php
+
+Install with: composer require textalk/websocket 1.0.*
+
+And a usage example:
+
+<?php
+
+require('vendor/autoload.php');
+
+use WebSocket\Client;
+
+$client = new Client("ws://127.0.0.1:1234");
+$client->send("Hello from PHP");
+
+echo $client->receive() . "\n"; // Should output 'Hello from PHP'
+
+
+
+
+
+
+_______________________
+
+use $ composer install  in server file

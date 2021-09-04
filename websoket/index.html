@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <style>
+            input, button { padding: 10px; }
+        </style>
+    </head>
+    <body>
+        <input value='working' type="text" id="message" />
+        <button  id='b' onclick="transmitMessage()">Send</button>
+        <script>
+            // Create a new WebSocket.
+            var socket  = new WebSocket('ws://localhost:8080');
+
+            // Define the
+            var message = document.getElementById('message');
+
+            function transmitMessage() {
+               alert('transmitted');
+                socket.send( message.value );
+            }
+
+            socket.onmessage = function(e) {
+                alert( e.data );
+            }
+        </script>
+        <script>
+document.getElementById('b').click();
+        </script>
+    </body>
+</html>
